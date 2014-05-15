@@ -26,6 +26,13 @@ function gigyaAfterRaasLogin( $gig_user, $wp_user ) {
 	// Update the WP user with Gigya image.
 	update_user_meta( $wp_user->ID, 'gig_avatar', $img_path );
 
+
+	// Get image path from gigya user object.
+	$nick = $gig_user['profile']['nickname'];
+
+	// Update the WP user with Gigya image.
+	update_user_meta( $wp_user->ID, 'nickname', $nick );
+
 }
 
 /**
