@@ -12,6 +12,7 @@
 add_action( 'gigya_after_raas_login', 'gigyaAfterRaasLogin', 10, 2 );
 add_filter( 'get_avatar', 'getAvatar', 1, 4 );
 
+
 /**
  * Implements gigya_after_raas_login hook.
  *
@@ -27,10 +28,10 @@ function gigyaAfterRaasLogin( $gig_user, $wp_user ) {
 	update_user_meta( $wp_user->ID, 'gig_avatar', $img_path );
 
 
-	// Get image path from gigya user object.
+	// Get nickname from gigya user object.
 	$nick = $gig_user['profile']['nickname'];
 
-	// Update the WP user with Gigya image.
+	// Update the WP nickname with Gigya nickname.
 	update_user_meta( $wp_user->ID, 'nickname', $nick );
 
 }
